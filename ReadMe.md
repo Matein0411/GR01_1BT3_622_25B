@@ -1,6 +1,6 @@
 # Sistema Financiero Personal 💰
 
-Un sistema web desarrollado en Java para la gestión financiera personal que permite el control de ingresos, gastos, deudas, préstamos y recordatorios financieros.
+Un sistema web desarrollado en Java para la gestión financiera personal que permite el control de ingresos, gastos, deudas, préstamos y recordatorios.
 
 ## 📋 Descripción
 
