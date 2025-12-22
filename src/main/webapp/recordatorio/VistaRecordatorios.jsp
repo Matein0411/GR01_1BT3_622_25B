@@ -21,8 +21,8 @@
 
 <section class="controls">
     <div class="search-wrapper">
-        <input id="search-input" class="search" type="text" placeholder="Buscar por descripción..." />
-        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+<%--        <input id="search-input" class="search" type="text" placeholder="Buscar por descripción..." />--%>
+<%--        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>--%>
     </div>
 </section>
 
@@ -58,16 +58,29 @@
                 <p><strong>Anticipación:</strong> ${r.diasDeAnticipacion} día(s)</p>
             </div>
             <div class="card-footer">
-                <a href="${pageContext.request.contextPath}/recordatorios/editar?id=${r.id}" class="btn btn-secondary">Editar</a>
-
-                    <%-- ✅ FORMULARIO CON MODAL PERSONALIZADO --%>
+                <a href="${pageContext.request.contextPath}/recordatorios/editar?id=${r.id}" class="btn btn-secondary">
+                        <%-- SVG de Editar --%>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                    Editar
+                </a>
                 <form class="delete-form"
                       action="${pageContext.request.contextPath}/recordatorios/borrar?id=${r.id}"
                       method="POST"
-                      style="display: inline;"
                       data-descripcion="<c:out value='${r.descripcion}'/>"
                       data-monto="<fmt:formatNumber value='${r.monto}' type='currency' currencySymbol='$' />">
-                    <button type="button" class="btn btn-danger delete-btn">Eliminar</button>
+
+                    <button type="button" class="btn btn-danger delete-btn">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                        Eliminar
+
+                    </button>
                 </form>
             </div>
         </article>
@@ -84,15 +97,15 @@
             deleteBtn.addEventListener('click', function(e) {
                 e.preventDefault();
 
-                ModalConfirm.show({
-                    title: '¿Estás seguro?',
-                    message: '¿Deseas eliminar este recordatorio? Esta acción no se puede deshacer.',
-                    confirmText: 'Eliminar',
-                    cancelText: 'Cancelar',
-                    detailTitle: 'Recordatorio:',
-                    detailText: `${form.dataset.descripcion} - ${form.dataset.monto}`,
-                    form: form
-                });
+
+                const mensaje = `¿Estás seguro de que deseas eliminar este recordatorio?\n\n` +
+                    `Esta acción no se puede deshacer.`;
+
+                const confirmado = window.confirm(mensaje);
+
+                if (confirmado) {
+                    form.submit();
+                }
             });
         });
     });

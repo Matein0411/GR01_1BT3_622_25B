@@ -52,14 +52,7 @@
                     <jsp:param name="valor" value="${resumen.ahorroNeto}"/>
                 </jsp:include>
 
-                <%-- Tarjeta PDF --%>
-                <c:if test="${not empty resumen.documentoPDF}">
-                    <jsp:include page="componentes_resumen_financiero/TarjetaPDF.jsp">
-                        <jsp:param name="resumenId" value="${resumen.id}"/>
-                        <jsp:param name="documentoNombre" value="${resumen.documentoPDF.nombre}"/>
-                        <jsp:param name="documentoTamanio" value="${resumen.documentoPDF.tamanio}"/>
-                    </jsp:include>
-                </c:if>
+
             </section>
         </div>
         <br>

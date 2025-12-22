@@ -29,10 +29,12 @@
         <mapping class="com.sistema_financiero_personal.movimiento.modelos.Gasto"/>
         <mapping class="com.sistema_financiero_personal.movimiento.modelos.Cartera"/>
 
+
         <mapping class="com.sistema_financiero_personal.obligaciones_financieras.modelos.ObligacionFinanciera"/>
         <mapping class="com.sistema_financiero_personal.obligaciones_financieras.modelos.Deuda"/>
         <mapping class="com.sistema_financiero_personal.obligaciones_financieras.modelos.Prestamo"/>
         <mapping class="com.sistema_financiero_personal.usuario.modelos.Usuario"/>
         <mapping class="com.sistema_financiero_personal.cuentas.modelos.Cuenta"/>
+        <mapping class="com.sistema_financiero_personal.plantillas.modelos.Plantilla"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,170 @@
+/* Filtros */
+    .filters-container {
+        background: var(--surface-color);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .filters-form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        align-items: end;
+    }
+
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .filter-group label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+    }
+
+    .filter-group input {
+        padding: 0.625rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 0.875rem;
+    }
+
+    .filter-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    /* Iconos de tipo */
+    .icon-deuda {
+        background-color: #fee;
+        color: #c33;
+    }
+
+    .icon-prestamo {
+        background-color: #efe;
+        color: #3c3;
+    }
+
+    /* Sección de montos */
+    .amounts-section {
+        margin: 1rem 0;
+    }
+
+    .amounts-section p {
+        margin: 0.5rem 0;
+        font-size: 0.9375rem;
+    }
+
+    /* Progress bar */
+    .progress-container {
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .progress-bar {
+        height: 10px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #4CAF50, #45a049);
+        transition: width 0.3s ease;
+        border-radius: 5px;
+    }
+
+    .progress-text {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+    }
+
+    /* Abono form */
+    .abono-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .abono-inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .select-cuenta,
+    .input-monto {
+        padding: 0.625rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 0.875rem;
+    }
+
+    .btn-full {
+        width: 100%;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+        .abono-inputs {
+            grid-template-columns: 1fr;
+        }
+
+        .filter-actions {
+            grid-column: 1 / -1;
+        }
+    }
+    /* Estilo general para selects */
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        width: 100%;
+        padding: 0.625rem 2rem 0.625rem 0.75rem;
+        font-size: 0.875rem;
+
+        color: #000; /* Texto negro */
+        background-color: #fff; /* Fondo blanco */
+
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        background-image: url("data:image/svg+xml;charset=UTF-8,<svg fill='none' height='20' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><polyline points='6 9 12 15 18 9'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 0.75rem center;
+        background-size: 1rem;
+    }
+
+    /* Hover y focus */
+    select:hover {
+        border-color: var(--accent-primary); /* borde verde o color principal */
+    }
+
+    select:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.25); /* Efecto suave verde */
+    }
+
+    /* Opciones internas */
+    select option {
+        background-color: #fff; /* Fondo blanco */
+        color: #000; /* Texto negro */
+    }
+
+    /* Corrige diferencias entre navegadores */
+    select::-ms-expand {
+        display: none;
+    }
+

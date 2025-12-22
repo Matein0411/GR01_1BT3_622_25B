@@ -32,7 +32,7 @@ public class ServicioCuenta {
             throw new IllegalArgumentException("El saldo inicial debe ser mayor que cero");
         }
 
-        if (existeCuentaDuplicada(cuenta.getNombre(), cuenta.getTipo(), cuenta.getCartera().getId())) {
+        if (existeCuentaDuplicada(cuenta.getNombre().trim(), cuenta.getTipo(), cuenta.getCartera().getId())) {
             throw new IllegalStateException("Ya existe una cuenta con el mismo nombre y tipo en esta cartera");
         }
 
@@ -40,7 +40,7 @@ public class ServicioCuenta {
     }
 
     public boolean existeCuentaDuplicada(String nombre, TipoCuenta tipo, Long carteraId) {
-        return daoCuenta.existeCuentaPorNombreYTipo(nombre, tipo, carteraId);
+        return daoCuenta.existeCuentaPorNombreYTipo(nombre.trim(), tipo, carteraId);
     }
 
 

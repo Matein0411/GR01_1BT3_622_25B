@@ -1,0 +1,246 @@
+/*
+ * css/movimientos.css
+ * Estilos SÓLO para la sección de plantillas en la vista de movimientos.
+ * Asume que 'style.css' ya está cargado para los estilos globales.
+ */
+
+/*
+ * --- Sección de Plantillas (Estilos corregidos para Tema Oscuro) ---
+ * Estos estilos usan las variables CSS de 'style.css'
+ */
+
+.plantillas-section {
+    margin-top: 30px;
+}
+
+/* Cabecera de la sección de plantillas (Acordeón) */
+.plantillas-header {
+    cursor: pointer;
+    background: var(--bg-light); /* Fondo oscuro, ligeramente diferente al form */
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-color); /* Borde oscuro */
+    transition: background-color 0.3s;
+}
+
+.plantillas-header:hover {
+    background: #3b4b63; /* Un poco más claro al pasar el mouse */
+}
+
+/* Contenedor del título (h3 y badge) */
+.plantillas-header .header-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.plantillas-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-primary); /* Texto claro */
+    font-weight: 600;
+}
+
+/* Icono SVG en la cabecera */
+.plantillas-header svg {
+    color: var(--text-secondary); /* Color de icono */
+}
+
+/* Badge con el contador de plantillas */
+.plantillas-header .badge {
+    background: var(--accent-primary);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Icono de chevron (flecha) */
+#chevronIcon {
+    transition: transform 0.3s;
+    color: var(--accent-primary); /* Color del chevron */
+}
+
+/* Contenido colapsable de las plantillas */
+#plantillasContent {
+    /* 'display: none;' se mantiene en línea en el JSP por el script */
+    margin-top: -1px; /* Ligeramente solapado para un look más limpio */
+    background: var(--bg-med); /* Mismo fondo que el formulario */
+    border: 1px solid var(--border-color);
+    border-top: none; /* Quitar borde superior */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 25px;
+}
+
+/* Cabecera dentro del contenido (párrafo + botón 'Nueva') */
+#plantillasContent .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#plantillasContent .content-header p {
+    margin: 0;
+    color: var(--text-secondary); /* Texto de ayuda claro */
+}
+
+/* El botón 'Nueva Plantilla' usará los estilos de 'style.css' (btn-success) */
+
+/* Grid para las tarjetas de plantillas */
+.plantillas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Tarjeta individual de plantilla */
+.plantilla-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    background: var(--bg-light); /* Fondo de la tarjeta */
+    transition: all 0.3s;
+    position: relative;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.plantilla-card:hover {
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transform: translateY(-3px);
+    border-color: var(--accent-primary); /* Resaltado al pasar el mouse */
+}
+
+/* Badge de tipo (Ingreso/Gasto) */
+.plantilla-card .tipo-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Estilos específicos para badge de INGRESO */
+.plantilla-card .tipo-badge.ingreso {
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+}
+
+/* Estilos específicos para badge de GASTO */
+.plantilla-card .tipo-badge.gasto {
+    background: rgba(231, 76, 60, 0.15);
+    color: var(--danger);
+}
+
+/* Contenido de la tarjeta */
+.plantilla-card .card-info {
+    margin-bottom: 12px;
+}
+
+.plantilla-card h4 {
+    margin: 0 0 8px 0;
+    color: var(--text-primary); /* Texto claro */
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.plantilla-card p {
+    margin: 0;
+    color: var(--text-secondary); /* Texto secundario claro */
+    font-size: 0.9rem;
+}
+
+.plantilla-card p strong {
+    color: #bdc3c7;
+}
+
+/* Monto en la tarjeta */
+.plantilla-card .card-monto {
+    margin-bottom: 20px;
+}
+
+.plantilla-card .card-monto p {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+/* Colores para el monto */
+.plantilla-card .card-monto p.ingreso {
+    color: #2ecc71; /* Verde */
+}
+.plantilla-card .card-monto p.gasto {
+    color: var(--danger); /* Rojo */
+}
+
+/* Contenedor de botones de la tarjeta */
+.plantilla-card .card-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Estilos para los botones dentro de la tarjeta */
+.plantilla-card .card-actions .btn,
+.plantilla-card .card-actions a.btn {
+    flex: 1;
+    font-size: 0.875rem;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px; /* Redondeado más pequeño para botones de tarjeta */
+    cursor: pointer;
+}
+
+/* Botón de Editar */
+.plantilla-card .card-actions .btn-edit {
+    background: var(--text-secondary);
+    color: var(--bg-dark);
+}
+
+/* Botón de Eliminar */
+.plantilla-card .card-actions .btn-delete {
+    background-color: var(--danger);
+    color: white;
+}
+.plantilla-card .card-actions .btn-delete:hover {
+    background-color: var(--danger-hover);
+}
+
+/* El botón de Usar (btn-primary) usará los estilos de style.css */
+
+/* Estado de "No hay plantillas" */
+.plantillas-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-secondary); /* Texto claro pero apagado */
+}
+
+.plantillas-empty-state svg {
+    margin-bottom: 15px;
+    opacity: 0.3;
+    color: var(--text-secondary);
+}
+
+.plantillas-empty-state p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.plantillas-empty-state p.subtext {
+    margin: 10px 0 0 0;
+    font-size: 0.9rem;
+}

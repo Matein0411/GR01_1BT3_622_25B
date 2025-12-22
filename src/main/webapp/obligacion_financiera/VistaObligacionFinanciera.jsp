@@ -8,6 +8,9 @@
     <jsp:param name="pageTitle" value="Deudas y Préstamos"/>
 </jsp:include>
 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/filters.css">
+
+
 <%-- 2. Contenido específico --%>
 <div class="page-header">
     <h1>Deudas y Préstamos</h1>
@@ -159,133 +162,6 @@
         </c:forEach>
     </section>
 </c:if>
-
-<style>
-    /* Filtros */
-    .filters-container {
-        background: var(--surface-color);
-        padding: 1.5rem;
-        border-radius: 12px;
-        margin-bottom: 2rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    .filters-form {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        align-items: end;
-    }
-
-    .filter-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .filter-group label {
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: var(--text-secondary);
-    }
-
-    .filter-group input {
-        padding: 0.625rem;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        font-size: 0.875rem;
-    }
-
-    .filter-actions {
-        display: flex;
-        gap: 0.5rem;
-    }
-
-    /* Iconos de tipo */
-    .icon-deuda {
-        background-color: #fee;
-        color: #c33;
-    }
-
-    .icon-prestamo {
-        background-color: #efe;
-        color: #3c3;
-    }
-
-    /* Sección de montos */
-    .amounts-section {
-        margin: 1rem 0;
-    }
-
-    .amounts-section p {
-        margin: 0.5rem 0;
-        font-size: 0.9375rem;
-    }
-
-    /* Progress bar */
-    .progress-container {
-        margin-top: 1.25rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--border-color);
-    }
-
-    .progress-bar {
-        height: 10px;
-        background-color: #e9ecef;
-        border-radius: 5px;
-        overflow: hidden;
-        margin-bottom: 0.5rem;
-    }
-
-    .progress-fill {
-        height: 100%;
-        background: linear-gradient(90deg, #4CAF50, #45a049);
-        transition: width 0.3s ease;
-        border-radius: 5px;
-    }
-
-    .progress-text {
-        font-size: 0.875rem;
-        color: var(--text-secondary);
-        font-weight: 500;
-    }
-
-    /* Abono form */
-    .abono-form {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    .abono-inputs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.5rem;
-    }
-
-    .select-cuenta,
-    .input-monto {
-        padding: 0.625rem;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        font-size: 0.875rem;
-    }
-
-    .btn-full {
-        width: 100%;
-        justify-content: center;
-    }
-
-    @media (max-width: 768px) {
-        .abono-inputs {
-            grid-template-columns: 1fr;
-        }
-
-        .filter-actions {
-            grid-column: 1 / -1;
-        }
-    }
-</style>
 
 <%-- 3. Incluimos el footer --%>
 <jsp:include page="/comun/VistaFooter.jsp" />

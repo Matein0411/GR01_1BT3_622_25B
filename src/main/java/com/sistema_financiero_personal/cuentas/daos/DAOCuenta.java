@@ -5,6 +5,7 @@ import com.sistema_financiero_personal.cuentas.modelos.Cuenta;
 import com.sistema_financiero_personal.cuentas.modelos.TipoCuenta;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;
 
 import java.util.List;
@@ -22,11 +23,17 @@ public class DAOCuenta extends DAOBase<Cuenta> {
             CriteriaQuery<Long> cq = cb.createQuery(Long.class);
             Root<Cuenta> root = cq.from(Cuenta.class);
 
+            Expression<String> nombreNormalizado = cb.lower(
+                    cb.trim(root.get("nombre"))
+            );
+
+            String nombreBuscar = nombre.trim().toLowerCase();
+
             cq.select(cb.count(root))
                     .where(
                             cb.and(
-                                    cb.equal(root.get("nombre"), nombre),
-                                    cb.equal(root.get("tipo"), tipo),  // ← Pasa el enum directamente
+                                    cb.equal(nombreNormalizado, nombreBuscar),
+                                    cb.equal(root.get("tipo"), tipo),
                                     cb.equal(root.get("cartera").get("id"), idCartera)
                             )
                     );
