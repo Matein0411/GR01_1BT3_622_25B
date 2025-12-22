@@ -6,9 +6,9 @@
     <session-factory>
         <!-- Conexión PostgreSQL -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://trolley.proxy.rlwy.net:30862/railway?sslmode=require</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://db.qymhniqcdiqcqvrfkcvb.supabase.co:5432/postgres?sslmode=require</property>
         <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">nuMTJvXcrxNwkgylGuQqhMRqfUljeMqS</property>
+        <property name="hibernate.connection.password">uIOKBxNdNM4YicPr</property>
 
         <!-- Dialecto PostgreSQL -->
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
